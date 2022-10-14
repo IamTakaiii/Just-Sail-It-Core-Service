@@ -21,4 +21,12 @@ export default Env.rules({
 	APP_NAME: Env.schema.string(),
   DRIVE_DISK: Env.schema.enum(['local'] as const),
 	NODE_ENV: Env.schema.enum(['development', 'production', 'test'] as const),
+  PG_HOST: Env.schema.string({ format: 'host' }),
+  PG_PORT: Env.schema.number(),
+  PG_USER: Env.schema.string(),
+  MSSQL_SERVER: Env.schema.string({ format: 'host' }),
+  MSSQL_PORT: Env.schema.number(),
+  MSSQL_USER: Env.schema.string(),
+  MSSQL_PASSWORD: Env.schema.string.optional(),
+  MSSQL_DB_NAME: Env.schema.string(),
 })
