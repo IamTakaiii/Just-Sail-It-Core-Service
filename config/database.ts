@@ -27,6 +27,7 @@ const databaseConfig: DatabaseConfig = {
       migrations: {
         naturalSort: true,
       },
+      searchPath: ['core', 'public'],
       healthCheck: false,
       debug: false,
     },
