@@ -14,6 +14,8 @@ export default class extends BaseSchema {
           .notNullable()
         table.string('email', 256)
           .notNullable()
+        table.bigInteger('nonce')
+          .notNullable()
         table.jsonb('profile')
         table.timestamp('created_at', { useTz: true })
         table.timestamp('updated_at', { useTz: true })
