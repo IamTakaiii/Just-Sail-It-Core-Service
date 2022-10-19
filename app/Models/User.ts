@@ -3,7 +3,7 @@ import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
 
-  // public static table = 'core.users'
+  public static table = 'core.users'
 
   @column({ isPrimary: true })
   public id: string
@@ -13,6 +13,9 @@ export default class User extends BaseModel {
 
   @column()
   public email: string
+
+  @column()
+  public nonce: string
 
   @column()
   public profile: {

@@ -4,7 +4,7 @@ export default class extends BaseSchema {
   protected tableName = 'users'
 
   public async up() {
-    this.schema.createSchemaIfNotExists('core')
+    this.schema.createSchema('core')
     this.schema
       .withSchema('core')
       .createTable(this.tableName, (table) => {
@@ -14,7 +14,7 @@ export default class extends BaseSchema {
           .notNullable()
         table.string('email', 256)
           .notNullable()
-        table.bigInteger('nonce')
+        table.string('nonce')
           .notNullable()
         table.jsonb('profile')
         table.timestamp('created_at', { useTz: true })
@@ -26,6 +26,6 @@ export default class extends BaseSchema {
     this.schema
       .withSchema('core')
       .dropTable(this.tableName)
-    this.schema.dropSchemaIfExists('core')
+    this.schema.dropSchema('core')
   }
 }
