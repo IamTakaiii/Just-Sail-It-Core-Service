@@ -24,8 +24,10 @@ export default class UserException extends Exception {
 
   public async handle(error: this, ctx: HttpContextContract) {
     let userMessage = ''
-    if (error.message.includes('duplicate')) userMessage = 'User already exist'
+    ctx.logger.error(error.message)
     // if (error.message.includes(''))
+    if (error.message.includes('duplicate')) userMessage = 'User already exist'
+    else userMessage = error.message
     ctx.response.status(error.status).send({ err : userMessage  })
   }
 }
