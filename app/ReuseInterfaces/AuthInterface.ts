@@ -1,10 +1,6 @@
 export interface RegisterRequest {
-  id: string,
+  publicAddress: string,
   email: string,
   username: string
 }
-
-
-
-
 
