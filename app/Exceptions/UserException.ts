@@ -15,6 +15,6 @@ export default class UserException extends Exception {
     // if (error.message.includes(''))
     if (error.message.includes('duplicate')) userMessage = 'User already exist'
     else userMessage = error.message
-    ctx.response.status(error.status).send({ err : userMessage  })
+    ctx.response.status(error.status).send({ error : userMessage  })
   }
 }

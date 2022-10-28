@@ -15,16 +15,16 @@ export default class UsersController {
         nonce : Math.floor(Math.random()*1000000).toString()
       })
       const token = await Token.createToken({publicAddress, username, email})
-      response.status(200).send({token})
+      response.send(token)
     }
     catch (err) {
       throw new UserException(err.message, err.status, 'USER_ERROR')
     }
   }
 
-  public async get ({request}: HttpContextContract) {
+  public async get ({request, response}: HttpContextContract) {
     // TO DO
-
+    response.send('bobbbb')
   }
 
   public async update ({request}: HttpContextContract) {

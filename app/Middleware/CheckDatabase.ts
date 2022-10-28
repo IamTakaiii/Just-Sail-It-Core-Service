@@ -7,18 +7,16 @@ export default class CheckDatabase {
     try {
       const user = await User.findByOrFail('id', publicAddress)
       request.updateBody(user)
+      await next()
     }
     catch (err) {
       if (err.toString().includes('E_ROW_NOT_FOUND')) {
         logger.warn(err)
-        response.send({ err: err.toString(), url: `http://127.0.0.1:3333/register` })
+        response.send({ error: err.toString(), url: `http://127.0.0.1:3333/register` })
       }
       else {
         logger.error(err)
       }
-    }
-    finally {
-      await next()
     }
   }
 }

@@ -22,10 +22,11 @@ export default class CheckRegisReq {
   public async handle({ request, response }: HttpContextContract, next: () => Promise<void>) {
     try {
       await request.validate({ schema: this.regisSchema })
-      next()
+      await next()
     }
     catch (err) {
-      response.status(400).send(err.messages)
+      if (err.message.includes('E_VALIDATION_FAILURE')) response.status(400).send(err.messages)
+      else await next()
     }
   }
 }
