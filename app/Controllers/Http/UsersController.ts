@@ -14,7 +14,7 @@ export default class UsersController {
         email : email,
         nonce : Math.floor(Math.random()*1000000).toString()
       })
-      const token = await Token.createToken({id: publicAddress, username, email})
+      const token = await Token.createToken({publicAddress, username, email})
       response.status(200).send({token})
     }
     catch (err) {

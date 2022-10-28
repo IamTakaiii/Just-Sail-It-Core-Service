@@ -41,5 +41,6 @@ Server.middleware.register([
 |
 */
 Server.middleware.registerNamed({
-  checkDatabase: () => import('App/Middleware/CheckDatabase')
+  checkDatabase: () => import('App/Middleware/CheckDatabase'),
+  checkRegisReq: () => import('App/Middleware/CheckRegisReq')
 })

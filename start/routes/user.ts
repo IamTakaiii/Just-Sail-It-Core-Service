@@ -2,7 +2,9 @@ import Route from "@ioc:Adonis/Core/Route";
 
 export function userNoAuthRoutes(): void {
   Route.group(() => {
-    Route.post('/register', 'UsersController.create').as('register')
+    Route.post('/register', 'UsersController.create')
+      .as('register')
+      .middleware('checkRegisReq')
   })
 }
 
