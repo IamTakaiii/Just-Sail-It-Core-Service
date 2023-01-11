@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  adonis_app:
+    container_name: just_sail_it_app
+    restart: always
+    build:
+      context: .
+      target: dependencies
+    ports:
+      - ${PORT}:${PORT}
+      - 9229:9229
+    env_file:
+      - .env
+    environment:
+      - PG_HOST=postgres
+    volumes:
+      - ./:/home/node/app
+    command: dumb-init node ace serve --watch --node-args="--inspect=0.0.0.0"
+
+  postgres:
+    container_name: ust_sail_it_db
+    image: postgres:13
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: takai
+      POSTGRES_PASSWORD: 023215560
+    ports:
+      - 5450:5432
+
+volumes:
+  postgres_volume:
