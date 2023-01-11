@@ -11,9 +11,11 @@ export default class extends BaseSeeder {
       {
         user_id: sameUserId,
         name: "First Project",
-        description: {
-          text: genString()
-        },
+        description: `
+          ### Bob
+
+          - dwdwdwd
+        `,
         catagories: [1,2,3],
         funding_goal: 50000,
         start_date: new Date("2022-03-25"),
@@ -25,9 +27,11 @@ export default class extends BaseSeeder {
       {
         user_id: genUserId(),
         name: "Second Project",
-        description: {
-          text: genString()
-        },
+        description: `
+          ### Bob
+
+          - dwdwdwd
+        `,
         catagories: [1, 2, 3],
         funding_goal: 50000,
         start_date: new Date("2022-03-25"),
@@ -39,9 +43,11 @@ export default class extends BaseSeeder {
       {
         user_id: sameUserId,
         name: "Second Project",
-        description: {
-          text: genString()
-        },
+        description: `
+          ### Bob
+
+          - dwdwdwd
+        `,
         catagories: [1, 2, 3],
         funding_goal: 50000,
         start_date: new Date("2022-03-25"),

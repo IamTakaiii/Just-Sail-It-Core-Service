@@ -13,7 +13,7 @@ export default class Project extends BaseModel {
   public name: string
 
   @column()
-  public description: object
+  public description: string
 
   @column()
   public catagories: number[]
