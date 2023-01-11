@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.string('id') .primary()
       table.string('user_id').notNullable()
       table.string('name', 256).notNullable()
-      table.jsonb('description').notNullable()
+      table.text('description').notNullable()
       table.specificType('catagories', 'integer ARRAY').notNullable()
       table.decimal('funding_goal', 27,18).notNullable()
       table.date('start_date').notNullable()
